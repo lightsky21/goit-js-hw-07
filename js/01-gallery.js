@@ -1,5 +1,9 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
+
+console.log(galleryItems);
+
+
 const galleryEl = document.querySelector('.gallery');
 
 
@@ -22,7 +26,14 @@ function makeGalleryItemsMarkup(galleryItems) {
 
 
 
+galleryEl.addEventListener('click', onGalleryElClick)
 
-
-
-console.log(galleryItems);
+function onGalleryElClick(e) {
+    e.preventDefault();
+    const isGalleryImageEl = e.target.classList.contains('gallery__image');
+    if (!isGalleryImageEl) {
+        return
+    }
+    const GalleryImageElUrl = e.target.dataset.source;
+   
+}
