@@ -7,12 +7,22 @@ const galleryEl = document.querySelector('.gallery');
 
 
 function makeGalleryItemsMarkup(galleryItems) {
-    const GalleryItemsMarkup = galleryItems.map(({ preview, original, description }) =>
+    return galleryItems.map(({ preview, original, description }) =>
     `<a class="gallery__item" href="${original}">
   <img class="gallery__image" src="${preview}" alt="${description}" />
 </a>`).join('')
-   
-    galleryEl.insertAdjacentHTML('beforeend', GalleryItemsMarkup);
+    
+  
 }
 
- makeGalleryItemsMarkup(galleryItems);
+const GalleryItemsMarkup = makeGalleryItemsMarkup(galleryItems);
+
+galleryEl.insertAdjacentHTML('beforeend', GalleryItemsMarkup); 
+
+
+let lightbox = new SimpleLightbox('.gallery a', {
+        captions: true,
+        captionsData: 'alt',
+        captionPosition: 'bottom',
+        captionDelay: 250,
+    })
