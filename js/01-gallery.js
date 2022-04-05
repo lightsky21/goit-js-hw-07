@@ -35,5 +35,11 @@ function onGalleryElClick(e) {
         return
     }
     const GalleryImageElUrl = e.target.dataset.source;
+
+const instance = basicLightbox.create(`
+    <img src="${GalleryImageElUrl}" width="800" height="600">
+`)
+
+instance.show()
    
 }
